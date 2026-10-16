@@ -12,9 +12,6 @@ public class CharacterDto {
     private String locationName;
     private String createdAt;
 
-    public CharacterDto() {
-    }
-
     public CharacterDto(long id, String name, String status, String species, String type,
                         String gender, String originName, String locationName, String createdAt) {
         this.id = id;
