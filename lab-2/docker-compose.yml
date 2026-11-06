@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:18
+    restart: no
+    environment:
+      POSTGRES_DB: lab2
+      POSTGRES_USER: lab2_user
+      POSTGRES_PASSWORD: lab2_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U lab2_user -d lab2" ]
+      interval: 10s
+      retries: 5
+      timeout: 10s
+      start_period: 30s
+
+volumes:
+  postgres_data:
